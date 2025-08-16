@@ -1,0 +1,215 @@
+/* 全局样式 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* 阅读友好字体 */
+.reading-friendly {
+  font-family: 'OpenDyslexic', 'Comic Sans MS', 'Microsoft YaHei', sans-serif !important;
+  line-height: 1.8 !important;
+  letter-spacing: 0.8px !important;
+  word-spacing: 3px !important;
+}
+
+/* 大字体模式 */
+.large-font {
+  font-size: 18px !important;
+}
+
+.large-font h1 { font-size: 32px !important; }
+.large-font h2 { font-size: 28px !important; }
+.large-font h3 { font-size: 24px !important; }
+.large-font p, .large-font div { font-size: 18px !important; }
+.large-font button { font-size: 16px !important; }
+
+/* 高对比度模式 */
+.high-contrast {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.high-contrast .ant-layout,
+.high-contrast .ant-layout-content,
+.high-contrast .ant-card,
+.high-contrast .ant-menu {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+.high-contrast .ant-card {
+  border: 2px solid #ffffff !important;
+}
+
+.high-contrast .ant-btn {
+  background-color: #333333 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+.high-contrast .ant-btn:hover {
+  background-color: #555555 !important;
+}
+
+/* 阅读高亮样式 */
+.highlight-sentence {
+  background-color: #fff3cd;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.highlight-word {
+  background-color: #d4edda;
+  padding: 1px 2px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+/* 段落编号 */
+.numbered-paragraph {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 16px;
+}
+
+.numbered-paragraph::before {
+  content: counter(paragraph);
+  counter-increment: paragraph;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #1890ff;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.reading-content {
+  counter-reset: paragraph;
+}
+
+/* 动画效果 */
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+/* 脉冲动画 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* 渐变文字 */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+/* 焦点指示器 */
+.focus-indicator {
+  outline: 3px solid #1890ff;
+  outline-offset: 2px;
+}
+
+/* 任务优先级颜色 */
+.priority-high {
+  border-left: 4px solid #ff4d4f;
+}
+
+.priority-medium {
+  border-left: 4px solid #faad14;
+}
+
+.priority-low {
+  border-left: 4px solid #52c41a;
+}
+
+/* 情绪颜色 */
+.mood-excellent { color: #52c41a; }
+.mood-good { color: #73d13d; }
+.mood-neutral { color: #faad14; }
+.mood-poor { color: #ff7875; }
+.mood-terrible { color: #ff4d4f; }
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .numbered-paragraph {
+    padding-left: 30px;
+  }
+  
+  .numbered-paragraph::before {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+}
+
+/* 无障碍设计 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 键盘导航 */
+.keyboard-navigation *:focus {
+  outline: 3px solid #1890ff;
+  outline-offset: 2px;
+}
+
+/* 减少动画（用户偏好） */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
